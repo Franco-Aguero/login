@@ -14,7 +14,7 @@ const Login = () => {
   const {Url} = process.env
   const onSubmit = async(event) => {
     try{
-      const { data } = await axios.post(`${Url}`, event)
+      const { data } = await axios.post("https://api-flordeemprendedora.start-7.com/api/auth/login/", event)
       localStorage.setItem("token", data.token)
       alert("Te logueste con exito!!") 
     }
