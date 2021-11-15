@@ -1,6 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&family=Nanum+Pen+Script&family=Oregano&display=swap');
 :root{
   --color-1:#5594EF;
   --color-2:#6DA3F1;
+  --color-3: #9EC2F6;
 }
 
 .container{
@@ -26,8 +28,14 @@ form{
   color: var(--color-1);
 }
 
-h2 u{
+h1 u{
   text-decoration: overline;
+}
+
+label{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
 }
 
 input{
@@ -36,11 +44,22 @@ input{
   border-radius: 4px;
   border: 1px solid #CEE0FA;
   padding: 2px 14px;
-  margin-bottom: 1rem;
+  /* margin-bottom: 1rem; */
+  color: var(--color-2);
+}
+input::placeholder { 
+  color: var(--color-3);
+}
+
+.error{
+  border: 1px solid #ff000054;
+}
+label span{
+  color: #ff000054;
 }
 
 #BtnSubmit{
-  height: 2rem;
+  height: 2.2rem;
   background-color: var(--color-1);
   color: white;
   outline: none;
@@ -50,8 +69,9 @@ input{
   cursor: pointer;
 }
 
-p{
+#firstP{
   margin-bottom: 2rem;
+  /* font-size: .5rem; */
 }
 
 #recuper{  
@@ -87,6 +107,7 @@ p{
 }
 .otro{  
   text-align: center;
+  font-size: .8rem;
 }
 
 
@@ -112,17 +133,19 @@ p{
 #Logo{
   display: flex;
   align-items: center;
-  border: 1px solid white;
+  border: 2px solid white;
   height: 3rem;
   margin: 0;
 }
 #Logo span:first-of-type{
   padding: 0 1rem;
-  font-size: 2rem;
-  font-family: serif;
+  font-size: 2.4rem;
+  font-family: 'Oregano', cursive;
+  font-weight: 500;
 }
 #lineLogo{
   height: 100%;
+  border: 1px solid;
 }
 #Logo span:last-of-type{
   padding: 0 1rem;
@@ -143,4 +166,8 @@ p{
 footer b{
   font-size: 1.5rem;
   font-weight: 400;
+}
+
+#faceIcon{
+  font-size: 1rem;
 }

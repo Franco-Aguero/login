@@ -29,39 +29,36 @@ const Login = () => {
         
         <div className="containerLeft">
           <form onSubmit={ handleSubmit(onSubmit)} >      
-            <h2><u>Be</u>m-vindo de volta!</h2>
-            <p>Estamos felizes que esteja de volta para retomar seus <br/> projetos no Projetolist.</p>
-
-            <input placeholder="E-mail" {...register("username",{
-              required: {
-                value:true,
-                message: "Este campo es requerido"
-              },
-              pattern: {
-                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
-                message: "El formato no es correcto @gmail.com"
-              }
-            })}/>
-            {errors.username && <span>{errors.username.message}</span>}
-
-            <input type="password" placeholder="Senha" {...register("password",{
-              required: {
-                value:true,
-                message: "Este campo es requerido"
-              },
-              /* pattern: {
-                value: ,
-                message: "El formato no es correcto @gmail.com"
-              } */
-            })}/>
-            {errors.password && <span>{errors.password.message}</span>}
-
+            <h1><u>Be</u>m-vindo de volta!</h1>
+            <p id="firstP">Estamos felizes que esteja de volta para retomar seus <br/> projetos no Projetolist.</p>
+            <label>
+              <input className={errors.username && "error"} placeholder="E-mail" {...register("username",{
+                required: {
+                  value:true,
+                  message: "Este campo es requerido"
+                },
+                pattern: {
+                  value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+                  message: "El formato no es correcto @gmail.com"
+                }
+              })}/>
+              {errors.username && <span>{errors.username.message}</span>}
+            </label>
+            <label>
+              <input type="password" className={errors.password && "error"} placeholder="Senha" {...register("password",{
+                required: {
+                  value:true,
+                  message: "Este campo es requerido"
+                },
+              })}/>
+              {errors.password && <span>{errors.password.message}</span>}
+            </label>
             <Link to="/ho" id="recuper">Esqueceu sua senha?</Link>
             <button type="submit" id="BtnSubmit">Entrar</button>
             <span className="otro">OU ENTRE COM</span>
 
             <div className="formas">
-              <button type="button"><FontAwesomeIcon icon={faFacebook} /></button>
+              <button type="button"><FontAwesomeIcon icon={faFacebook} id="faceIcon" /></button>
               <button type="button">G</button>
             </div>
 
