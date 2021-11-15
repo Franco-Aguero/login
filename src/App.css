@@ -78,20 +78,20 @@ label span{
   text-align: end;
   color: var(--color-2);
 }
-.formas{
+.loginMethods{
   display: flex;
   justify-content: center;
   grid-gap: 1rem;  
 }
 
-.formas button:first-of-type{
+.loginMethods button:first-of-type{
   background-color: #1D69E5;
   color: white;
   border-radius: 4px;
   border: none;
   outline: none;
 }
-.formas button:last-of-type{
+.loginMethods button:last-of-type{
   color: var(--color-1);
   background-color: transparent;
   outline: none;
@@ -99,13 +99,13 @@ label span{
   font-size: larger;
   font-weight: 900;
 }
-.formas button{
+.loginMethods button{
   width: 2.5rem;
   height: 2.5rem;
   cursor: pointer;
   margin: 1rem 0;
 }
-.otro{  
+.textCenter{  
   text-align: center;
   font-size: .8rem;
 }

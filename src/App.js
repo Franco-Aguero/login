@@ -4,29 +4,23 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFacebook } from '@fortawesome/free-brands-svg-icons'
 import { faImage } from '@fortawesome/free-solid-svg-icons'
 import axios from "axios"
-import dotenv from "dotenv"
 import './App.css';
-dotenv.config()
 
 const Login = () => {
-  const { register,handleSubmit, formState: { errors } } = useForm();
-  
-  const {Url} = process.env
+  const { register,handleSubmit, formState: { errors } } = useForm();  
   const onSubmit = async(event) => {
     try{
       const { data } = await axios.post("https://api-flordeemprendedora.start-7.com/api/auth/login/", event)
       localStorage.setItem("token", data.token)
-      alert("Te logueste con exito!!") 
+      alert("Você logou com sucesso!!") 
     }
     catch(err){
-      alert("Upsss Algo Salio Mal :(")
+      alert("Ops, algo deu errado :(")
     }
   };
 
-
   return (
     <div className="container">
-        
         <div className="containerLeft">
           <form onSubmit={ handleSubmit(onSubmit)} >      
             <h1><u>Be</u>m-vindo de volta!</h1>
@@ -35,11 +29,11 @@ const Login = () => {
               <input className={errors.username && "error"} placeholder="E-mail" {...register("username",{
                 required: {
                   value:true,
-                  message: "Este campo es requerido"
+                  message: "Este campo é obrigatório"
                 },
                 pattern: {
                   value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
-                  message: "El formato no es correcto @gmail.com"
+                  message: "O formato não está correto @gmail.com"
                 }
               })}/>
               {errors.username && <span>{errors.username.message}</span>}
@@ -48,25 +42,27 @@ const Login = () => {
               <input type="password" className={errors.password && "error"} placeholder="Senha" {...register("password",{
                 required: {
                   value:true,
-                  message: "Este campo es requerido"
+                  message: "Este campo é obrigatório"
                 },
+                minLength: {
+                  value:8,
+                  message: "deve ter no mínimo 8 caracteres"
+                }
               })}/>
               {errors.password && <span>{errors.password.message}</span>}
             </label>
-            <Link to="/ho" id="recuper">Esqueceu sua senha?</Link>
+            <Link to="/recuper" id="recuper">Esqueceu sua senha?</Link>
             <button type="submit" id="BtnSubmit">Entrar</button>
-            <span className="otro">OU ENTRE COM</span>
+            <span className="textCenter">OU ENTRE COM</span>
 
-            <div className="formas">
+            <div className="loginMethods">
               <button type="button"><FontAwesomeIcon icon={faFacebook} id="faceIcon" /></button>
               <button type="button">G</button>
             </div>
 
-            <p className="otro">Ainda não tem uma conta? <b>Cadastre-se</b> </p>
+            <p className="textCenter">Ainda não tem uma conta? <b>Cadastre-se</b> </p>
           </form>
-        </div>
-        
-      
+        </div> 
 
         <div className="containerRight">
           <div className="header">
@@ -77,9 +73,7 @@ const Login = () => {
             </div>
             <Link to="/ajuda">Ajuda</Link>
           </div>
-
           <FontAwesomeIcon icon={faImage} id="imageDefault" />
-          
           <footer>
             <span>© 2021, Projetolist</span>
             <span>UI/UX Design and Front-end by: <b>s<u>a</u></b></span>
