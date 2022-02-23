@@ -3,20 +3,23 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFacebook } from '@fortawesome/free-brands-svg-icons'
 import { faImage } from '@fortawesome/free-solid-svg-icons'
-import axios from "axios"
+/* import axios from "axios" */
 import './App.css';
 
 const Login = () => {
   const { register,handleSubmit, formState: { errors } } = useForm();  
   const onSubmit = async(event) => {
-    try{
-      const { data } = await axios.post("https://api-flordeemprendedora.start-7.com/api/auth/login/", event)
+    const verifiedEmail = "aguerofranco@gmail.com", verifiedPassword = "React123", { username, password} = event;
+    username === verifiedEmail && password === verifiedPassword ? 
+    alert("Você logou com sucesso!!") : alert("Senha ou e-mail errado, tente novamente");
+    /* try{
+      const { data } = await axios.post( process.env.REACT_APP_URL, event)
       localStorage.setItem("token", data.token)
       alert("Você logou com sucesso!!") 
     }
     catch(err){
       alert("Ops, algo deu errado :(")
-    }
+    } */
   };
 
   return (
@@ -24,7 +27,7 @@ const Login = () => {
         <div className="containerLeft">
           <form onSubmit={ handleSubmit(onSubmit)} >      
             <h1><u>Be</u>m-vindo de volta!</h1>
-            <p id="firstP">Estamos felizes que esteja de volta para retomar seus <br/> projetos no Projetolist.</p>
+            <p id="firstP">Estamos felizes que esteja de volta para retomar seus projetos no Projetolist.</p>
             <label>
               <input className={errors.username && "error"} placeholder="E-mail" {...register("username",{
                 required: {

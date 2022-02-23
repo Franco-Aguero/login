@@ -11,12 +11,13 @@
   display: flex;
   background-color: white /* #E5E5E5 */;
   align-items: center;
+  justify-content: center;
 }
 
 .containerLeft{
   display: flex;
   align-items: center;
-  width: 50%;
+  width: 90%;
   height: 100%;
 }
 
@@ -70,7 +71,8 @@ label span{
 }
 
 #firstP{
-  margin-bottom: 2rem;
+  margin: 0 0 2rem;
+  max-width: 342px;
   /* font-size: .5rem; */
 }
 
@@ -110,9 +112,10 @@ label span{
   font-size: .8rem;
 }
 
+/* CONTAINER RIGHT */
 
 .containerRight{
-  display: flex;
+  display: none;
   flex-direction: column;
   justify-content: space-around;
   background-color: #6DA3F1;
@@ -160,7 +163,7 @@ label span{
 
 .containerRight footer{
   display: flex;
-  align-items: flex-end;
+  align-items: baseline;
   justify-content: space-around;
 }
 footer b{
@@ -170,4 +173,14 @@ footer b{
 
 #faceIcon{
   font-size: 1rem;
+} 
+
+@media (min-width: 860px) {
+  .containerLeft{   
+    width: 50%;
+  }
+
+  .containerRight{
+    display: flex;
+  }
 }
