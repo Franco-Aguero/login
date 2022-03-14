@@ -77,7 +77,8 @@ label span{
 }
 
 #recuper{  
-  text-align: end;
+  width: max-content;
+  align-self: end;
   color: var(--color-2);
 }
 .loginMethods{
